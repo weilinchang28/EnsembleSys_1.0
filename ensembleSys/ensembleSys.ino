@@ -14,6 +14,12 @@ Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 #define DELAYVAL 500 // Time (in milliseconds) to pause between pixels
 
 //////////////////////////////////////////////////////
+  
+int chordIndex0 [] = {4,4,7,7,7,10,10,10,13,13,20,20};
+int chordIndex1 [] = {4,4,7,7,7,10,10,10,13,13,20,20};
+int chordIndex2 [] = {4,4,7,7,7,10,10,10,13,13,20,20};
+
+//////////////////////////////////////////////////////
 
 int LED_pin0 = 9;
 int LED_pin1 = 10;
@@ -22,7 +28,9 @@ int LED_pin2 = 11;
 void setup() {
   
   Serial.begin(9600);
-  pinMode(LED_pin,OUTPUT);
+  pinMode(LED_pin0,OUTPUT);
+  pinMode(LED_pin1,OUTPUT);
+  pinMode(LED_pin2,OUTPUT);
   
   ////////////////////////////////////////////////////
   #if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
@@ -30,7 +38,7 @@ void setup() {
   #endif
 
   pixels.begin(); // INITIALIZE NeoPixel strip object (REQUIRED)
-  
+
 }
 
 void loop() {
@@ -45,17 +53,17 @@ void loop() {
     if (value1 == 1)
       {
         pixels.clear();
-        pixels.setPixelColor(chordIndex[], pixels.Color(255, 255, 255));
+        pixels.setPixelColor(chordIndex0[0], pixels.Color(255, 255, 255));
         pixels.show();   // Send the updated pixel colors to the hardware.
       }
     else if (value1 == 0)
       {
         pixels.clear();
-        pixels.setPixelColor(chordIndex[], pixels.Color(0, 0, 0));
+        pixels.setPixelColor(chordIndex0[1], pixels.Color(0, 0, 0));
         pixels.show();   // Send the updated pixel colors to the hardware.
       }
-      }
-  }
+   }
+  
   
 
   delay(DELAYVAL); // Pause before next pass through loop
