@@ -51,44 +51,44 @@ var userChord = [userA, userB, userC];
 var counter = 0;
 var chordIndex = 0;
 
-var result;
-
 var acceptFRange = 5;
 
 // Game System
 
 function playChord(freqA, freqB, freqC)
 {
-    var result = [false,false,false]
+    var result = [false,false,false];
 
     if(Math.abs(freqA-userA[chordIndex])<acceptFRange)
     {
-        result[0]=true;
+        ressult[0]=true;
     }
 
     if(Math.abs(freqB-userB[chordIndex])<acceptFRange)
     {
-        result[1]=true;
+        ressult[1]=true;
     }
 
     if(Math.abs(freqC-userC[chordIndex])<acceptFRange)
     {
-        result[2]=true;
+        ressult[2]=true;
     }
+
+    // for(var i = 0; i < 3; i++)
+    // {
+    //     // 
+    // }
 
     if(result = [true,true,true])
     {
         chordIndex++;
-        // counter++;
+        counter++;
     }
 
     else // if not all of them are on the target
     {
         outlet(0,false);
     }
-
-    post(result);
-    post(" ");
 
     outlet(1, "counting" + counter);
     outlet(2, "current chord" + chordIndex);

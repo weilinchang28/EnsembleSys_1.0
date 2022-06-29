@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1571.0, -205.0, 807.0, 1280.0 ],
+		"rect" : [ 35.0, 85.0, 799.0, 1280.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,18 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-48",
+					"id" : "obj-6",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 317.111350939273848, 24.866309434175491, 108.0, 22.0 ],
+					"numoutlets" : 3,
+					"outlettype" : [ "", "", "" ],
+					"patching_rect" : [ 574.994638592004776, 497.493643081188225, 125.0, 22.0 ],
 					"saved_object_attributes" : 					{
-						"filename" : "constList_LFA.js",
+						"filename" : "ensembleSystem.js",
 						"parameter_enable" : 0
 					}
 ,
-					"text" : "js constList_LFA.js"
+					"text" : "js ensembleSystem.js"
 				}
 
 			}
@@ -91,30 +91,14 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-44",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 574.994638592004776, 493.049198782444023, 133.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"filename" : "ensembleSys.js",
-						"parameter_enable" : 0
-					}
-,
-					"text" : "js ensembleSys_LFA.js"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-43",
+					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 574.994638592004776, 651.410160750150681, 183.148148536682129, 22.0 ],
-					"text" : "playChord 349.23 293.66 220."
+					"patching_rect" : [ 574.994638592004776, 651.410160750150681, 183.148148536682129, 36.0 ],
+					"text" : "playChord 349.23 293.66 233.769374"
 				}
 
 			}
@@ -151,7 +135,7 @@
 					"numoutlets" : 5,
 					"outlettype" : [ "signal", "signal", "", "float", "list" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 30.064164578914642, 498.128327697515488, 48.0, 136.0 ],
+					"patching_rect" : [ 30.064164578914642, 498.869068413972855, 48.0, 136.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "live.gain~",
@@ -729,7 +713,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-43", 1 ],
-					"midpoints" : [ 584.494638592004776, 488.395165591835962, 748.642787128686905, 488.395165591835962 ],
+					"midpoints" : [ 584.494638592004776, 491.35812845766543, 748.642787128686905, 491.35812845766543 ],
 					"order" : 0,
 					"source" : [ "obj-41", 0 ]
 				}
@@ -737,7 +721,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-44", 0 ],
+					"destination" : [ "obj-6", 0 ],
 					"order" : 1,
 					"source" : [ "obj-41", 0 ]
 				}
@@ -746,24 +730,24 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-45", 1 ],
-					"midpoints" : [ 584.494638592004776, 527.544496390223458, 615.494638592004776, 527.544496390223458 ],
-					"source" : [ "obj-44", 0 ]
+					"midpoints" : [ 584.494638592004776, 528.285237106680825, 615.494638592004776, 528.285237106680825 ],
+					"source" : [ "obj-6", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-46", 0 ],
-					"midpoints" : [ 641.494638592004776, 558.285236123204186, 584.494638592004776, 558.285236123204186 ],
-					"source" : [ "obj-44", 1 ]
+					"midpoints" : [ 637.494638592004776, 559.025976839661553, 584.494638592004776, 559.025976839661553 ],
+					"source" : [ "obj-6", 1 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-47", 0 ],
-					"midpoints" : [ 698.494638592004776, 590.877827647328331, 584.494638592004776, 590.877827647328331 ],
-					"source" : [ "obj-44", 2 ]
+					"midpoints" : [ 690.494638592004776, 593.840790513157799, 584.494638592004776, 593.840790513157799 ],
+					"source" : [ "obj-6", 2 ]
 				}
 
 			}
@@ -796,7 +780,14 @@
 			"inherited_shortname" : 1
 		}
 ,
-		"dependency_cache" : [  ],
+		"dependency_cache" : [ 			{
+				"name" : "ensembleSystem.js",
+				"bootpath" : "~/Desktop/EnsembleSys",
+				"patcherrelativepath" : ".",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+ ],
 		"autosave" : 0
 	}
 
