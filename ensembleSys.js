@@ -55,7 +55,7 @@ var acceptFRange = 5;
 
 // Game System
 
-function playChord(freqA, freqB, freqC)
+function playChord(freqA, freqB, freqC) // freq from MAXMSP, user number (e.g., 440.2,2)
 {
     var result = [false,false,false];
 
@@ -74,18 +74,30 @@ function playChord(freqA, freqB, freqC)
         ressult[2]=true;
     }
 
-    // for(var i = 0; i < 3; i++)
-    // {
-    //     // 
-    // }
-
-    if(result = [true,true,true])
+    
+    var numEqual = 0;
+    for (var i = 0 ; i < result.length ; i++)
     {
-        chordIndex++;
-        counter++;
+        if(result[i] == true)
+        {
+            numEqual++;
+        }
     }
 
-    else // if not all of them are on the target
+    if(numEqual == 3) // if sll three are in tune 
+    {
+        outlet(0, "all in tune" + true);
+        if(counter > 100) // here you can define the deboucing value
+        {
+            chordIndex++;
+            counter = 0;
+        }
+        else
+        {
+            counter++;
+        }
+    }
+    else // if not all of them are in tune
     {
         outlet(0,false);
     }

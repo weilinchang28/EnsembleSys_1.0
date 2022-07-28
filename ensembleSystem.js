@@ -43,6 +43,7 @@ var sD5 = 622.25;
 //                                                 [C5,A4,F4] // 523.25 | 440 | 349.23 || chord 11
 // ];
 
+// 349.23 | 293.66 | 220
 
 var userA = [F4,F4,G4,G4,G4,A4,A4,A4,A4,sA4,sA4,C5,C5];
 var userB = [D4,D4,D4,D4,E4,E4,E4,F4,F4,G4,G4,A4];
@@ -87,8 +88,8 @@ function playChord(freqA, freqB, freqC)
         outlet(0,false);
     }
 
-    post(result);
-    post(" ");
+    // post(result);
+    // post(" ");
 
     outlet(1, "counting" + counter);
     outlet(2, "current chord" + chordIndex);
