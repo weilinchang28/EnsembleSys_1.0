@@ -43,7 +43,6 @@ var sD5 = 622.25;
 //                                                 [C5,A4,F4] // 523.25 | 440 | 349.23 || chord 11
 // ];
 
-// 349.23 | 293.66 | 220
 
 var userA = [F4,F4,G4,G4,G4,A4,A4,A4,A4,sA4,sA4,C5,C5];
 var userB = [D4,D4,D4,D4,E4,E4,E4,F4,F4,G4,G4,A4];
@@ -52,47 +51,60 @@ var userChord = [userA, userB, userC];
 var counter = 0;
 var chordIndex = 0;
 
-var result;
-
 var acceptFRange = 5;
 
 // Game System
 
-function playChord(freqA, freqB, freqC)
+function playChord(freqA, freqB, freqC) // freq from MAXMSP, user number (e.g., 440.2,2)
 {
-    var result = [false,false,false]
+    var result = [false,false,false];
 
-    if(Math.abs(freqA-userA[chordIndex])<acceptFRange)
+    if (Math.abs(freqA-userA[chordIndex])<acceptFRange)
     {
         result[0]=true;
     }
 
-    if(Math.abs(freqB-userB[chordIndex])<acceptFRange)
+    if (Math.abs(freqB-userB[chordIndex])<acceptFRange)
     {
         result[1]=true;
     }
 
-    if(Math.abs(freqC-userC[chordIndex])<acceptFRange)
+    if (Math.abs(freqC-userC[chordIndex])<acceptFRange)
     {
         result[2]=true;
     }
 
-    if(result = [true,true,true])
+    
+    var numInTune = 0;
+    for (var i = 0 ; i < result.length ; i++)
     {
-        chordIndex++;
-        // counter++;
+        if(result[i] == true)
+        {
+            numInTune++;
+        }
     }
 
-    else // if not all of them are on the target
+
+    if (numInTune == 3) // if all three are in tune 
     {
-        outlet(0,false);
+        outlet(0, "all in tune " + true);
+        if (counter > 100) // here you can define the deboucing value
+        {
+            chordIndex++;
+            counter = 0;
+        }
+        else
+        {
+            counter++;
+        }
+    }
+    else // if not all of them are in tune
+    {
+        outlet(0, false);
     }
 
-    // post(result);
-    // post(" ");
-
-    outlet(1, "counting" + counter);
-    outlet(2, "current chord" + chordIndex);
+    outlet(1, "Counter - " + counter);
+    outlet(2, "Current Chord - " + chordIndex);
     
 }
 
