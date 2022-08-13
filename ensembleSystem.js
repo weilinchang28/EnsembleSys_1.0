@@ -87,7 +87,7 @@ function playChord(freqA, freqB, freqC) // freq from MAXMSP, user number (e.g., 
 
     if (numInTune == 3) // if all three are in tune 
     {
-        outlet(0, "all in tune " + true);
+        outlet(0, true); // "all in tune " + true
         if (counter > 100) // here you can define the deboucing value
         {
             chordIndex++;
@@ -103,8 +103,8 @@ function playChord(freqA, freqB, freqC) // freq from MAXMSP, user number (e.g., 
         outlet(0, false);
     }
 
-    outlet(1, "Counter - " + counter);
-    outlet(2, "Current Chord - " + chordIndex);
+    outlet(1, "Counter " + counter);
+    outlet(2, "Current Chord " + chordIndex);
     
 }
 
